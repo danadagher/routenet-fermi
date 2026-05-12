@@ -43,8 +43,44 @@ for tm in ['constant_bitrate', 'onoff', 'autocorrelated', 'modulated', 'all_mult
     model.load_weights(os.path.join(ckpt_dir, best))
 
     ds_test = input_fn(TEST_PATH, shuffle=False)
+    ds_test = ds_test.take(200)
     ds_test = ds_test.prefetch(tf.data.experimental.AUTOTUNE)
+
+
+     # ---
+    print("\n========== DATASET INSPECTION ==========")
+    for x, y in ds_test.take(1):
+        print("\n--- Input type:", type(x))
+        if isinstance(x, dict):
+            print("\n--- Input keys and shapes ---")
+            for k, v in x.items():
+                try:
+                    print(f"  {k:30s} shape={v.shape}  dtype={v.dtype}")
+                except AttributeError:
+                    print(f"  {k:30s} (not a tensor) -> {type(v)}")
+        else:
+            print("Input is not a dict:", x)
+
+        print("\n--- Label ---")
+        print(f"  shape={y.shape}  dtype={y.dtype}")
+        print(f"  first 5 values: {y[:5].numpy()}")
+        break
+    print("========================================\n")
+    # --- 
+
 
     predictions = model.predict(ds_test, verbose=1)
 
     np.save(f'predictions_delay_{tm}.npy', np.squeeze(predictions))
+    labels_all = []
+    flow_counts = []
+    for inputs_batch, labels_batch in ds_test:
+        labels_all.append(labels_batch.numpy())
+        flow_counts.append(len(labels_batch))
+
+    labels_all = np.concatenate(labels_all)
+    flow_counts = np.array(flow_counts)
+
+    np.save(f'labels_delay_{tm}.npy', labels_all)
+    np.save(f'flow_counts_delay_{tm}.npy', flow_counts)
+

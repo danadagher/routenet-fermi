@@ -24,7 +24,7 @@ model.compile(loss=loss_object,
 best = None
 best_mre = float('inf')
 
-ckpt_dir = f'./ckpt_dir_mape'
+ckpt_dir = f'./ckpt_dir'
 
 for f in os.listdir(ckpt_dir):
     if os.path.isfile(os.path.join(ckpt_dir, f)):

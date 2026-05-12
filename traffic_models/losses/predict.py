@@ -51,7 +51,8 @@ for tm in ['onoff', 'autocorrelated', 'modulated', 'all_multiplexed']:
 
     model.load_weights(os.path.join(ckpt_dir, best))
 
-    ds_test = input_fn(TEST_PATH, shuffle=False)
+    ds_test = input_fn(TEST_PATH, shuffle=False) 
+    ds_test = ds_test.take(200)
     ds_test = ds_test.prefetch(tf.data.experimental.AUTOTUNE)
 
     predictions = model.predict(ds_test, verbose=1)
