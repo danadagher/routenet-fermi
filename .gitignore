@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+venv/
+*.npy
+data/
+.DS_Store
+Thumbs.db
