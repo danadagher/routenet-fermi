@@ -1,0 +1,76 @@
+2026-05-12 10:53:37.965231: I tensorflow/core/platform/cpu_feature_guard.cc:142] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-05-12 10:53:39.550248: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:185] None of the MLIR Optimization Passes are enabled (registered 2)
+2026-05-12 10:54:11.733094: W tensorflow/core/grappler/optimizers/loop_optimizer.cc:907] Skipping loop optimization for Merge node with control input: RaggedConcat_15/assert_equal_1/Assert/AssertGuard/branch_executed/_954
+Loading checkpoint: 45-4.29  (val MAPE = 4.29%)
+Loaded 200 samples
+Running baseline predictions to select flows …
+Delay stats: min=0.206305  median=0.246217  max=0.434167
+Low-delay  range: 0.206305 – 0.216339
+High-delay range: 0.307858 – 0.434167
+
+Background (median per feature):
+  traffic              605.2905
+  packets              0.6010
+  eq_lambda            601.0050
+  avg_pkts_lambda      0.6010
+  exp_max_factor       0.0000
+  pkts_lambda_on       0.0000
+  avg_t_off            0.0000
+  avg_t_on             0.0000
+  ar_a                 0.0000
+  sigma                0.0000
+
+Running KernelSHAP on 40 flows  (nsamples=256) …
+  [ 1/40]  sample= 34  group=low   delay=0.206305  top_feat=traffic
+  [ 2/40]  sample=197  group=low   delay=0.208482  top_feat=traffic
+  [ 3/40]  sample= 54  group=low   delay=0.208880  top_feat=traffic
+  [ 4/40]  sample=135  group=low   delay=0.209535  top_feat=packets
+  [ 5/40]  sample= 84  group=low   delay=0.209763  top_feat=traffic
+  [ 6/40]  sample=179  group=low   delay=0.210154  top_feat=traffic
+  [ 7/40]  sample= 48  group=low   delay=0.210168  top_feat=traffic
+  [ 8/40]  sample= 57  group=low   delay=0.210771  top_feat=traffic
+  [ 9/40]  sample= 82  group=low   delay=0.211318  top_feat=traffic
+  [10/40]  sample= 81  group=low   delay=0.211367  top_feat=traffic
+  [11/40]  sample= 28  group=low   delay=0.212515  top_feat=traffic
+  [12/40]  sample=149  group=low   delay=0.212833  top_feat=traffic
+  [13/40]  sample=154  group=low   delay=0.213607  top_feat=traffic
+  [14/40]  sample=166  group=low   delay=0.214897  top_feat=packets
+  [15/40]  sample=124  group=low   delay=0.215318  top_feat=traffic
+  [16/40]  sample=174  group=low   delay=0.215439  top_feat=traffic
+  [17/40]  sample=127  group=low   delay=0.215835  top_feat=traffic
+  [18/40]  sample= 39  group=low   delay=0.215924  top_feat=traffic
+  [19/40]  sample=158  group=low   delay=0.216281  top_feat=traffic
+  [20/40]  sample= 66  group=low   delay=0.216339  top_feat=traffic
+  [21/40]  sample=  7  group=high  delay=0.307858  top_feat=traffic
+  [22/40]  sample= 46  group=high  delay=0.309276  top_feat=traffic
+  [23/40]  sample= 11  group=high  delay=0.310291  top_feat=traffic
+  [24/40]  sample=121  group=high  delay=0.314495  top_feat=traffic
+  [25/40]  sample=131  group=high  delay=0.317922  top_feat=traffic
+  [26/40]  sample= 26  group=high  delay=0.325272  top_feat=packets
+  [27/40]  sample=146  group=high  delay=0.325350  top_feat=traffic
+  [28/40]  sample=100  group=high  delay=0.328502  top_feat=traffic
+  [29/40]  sample= 25  group=high  delay=0.329367  top_feat=packets
+  [30/40]  sample= 27  group=high  delay=0.336876  top_feat=traffic
+  [31/40]  sample= 16  group=high  delay=0.337131  top_feat=traffic
+  [32/40]  sample=151  group=high  delay=0.338537  top_feat=traffic
+  [33/40]  sample= 92  group=high  delay=0.340077  top_feat=traffic
+  [34/40]  sample=113  group=high  delay=0.341918  top_feat=traffic
+  [35/40]  sample=176  group=high  delay=0.348705  top_feat=traffic
+  [36/40]  sample=185  group=high  delay=0.350073  top_feat=traffic
+  [37/40]  sample=195  group=high  delay=0.399203  top_feat=traffic
+  [38/40]  sample= 42  group=high  delay=0.399230  top_feat=traffic
+  [39/40]  sample= 78  group=high  delay=0.401250  top_feat=traffic
+  [40/40]  sample= 67  group=high  delay=0.434167  top_feat=traffic
+
+Saved: shap_values_constant_bitrate.npy  shap_delays_selected.npy  shap_features_selected.npy  shap_groups.npy
+Saved: shap_plots/mean_shap_bar.png
+Saved: shap_plots/low_vs_high_shap.png
+Saved: shap_plots/shap_summary_dot.png
+Saved: shap_plots/shap_waterfall_worst.png
+Traceback (most recent call last):
+  File "shap_explain.py", line 288, in <module>
+    print("\n\u2713 Step 3 complete — all SHAP results saved to traffic_models/delay/shap_plots/")
+  File "C:\Users\ddagher\AppData\Local\Python\pythoncore-3.7-64\lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 2: character maps to <undefined>
