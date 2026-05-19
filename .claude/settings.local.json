@@ -2,7 +2,22 @@
   "permissions": {
     "allow": [
       "Bash(git status *)",
-      "Bash(cat .gitignore)"
+      "Bash(cat .gitignore)",
+      "Bash(../../venv/Scripts/python.exe step4_analysis.py)",
+      "Bash(venv/Scripts/python.exe -c ' *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Read(//c/Users/ddagher/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/eb3cff85-bb14-4303-9b21-bb0d69e3fe6d/6e246a8a-a583-4ff3-9ca1-346d79601d86/skills/pptx/**)",
+      "Bash(python scripts/thumbnail.py \"C:\\\\Users\\\\ddagher\\\\OneDrive - Capgemini\\\\Bureau\\\\Nouveau Présentation Microsoft PowerPoint.pptx\")",
+      "Bash(pip install *)",
+      "Bash(npm list *)",
+      "PowerShell(node --version)",
+      "PowerShell(npm list -g pptxgenjs 2>&1)",
+      "Bash(venv/Scripts/python.exe -c \"import pptx; print\\(pptx.__version__\\)\")",
+      "Bash(venv/Scripts/pip.exe install *)",
+      "Bash(venv/Scripts/python.exe -c \"import pptx; print\\('pptx', pptx.__version__\\)\")",
+      "Bash(ls \"C:\\\\Users\\\\ddagher\\\\Downloads\\\\slicing-simulations.zip\\\\2.2.1-10kprocessed\" 2>&1 | head -50)",
+      "PowerShell(Get-ChildItem -Recurse -Directory -ErrorAction SilentlyContinue | Where-Object { $_.Name -match 'data|dataset|sample|record' } | Select-Object -ExpandProperty FullName)"
     ]
   }
 }
