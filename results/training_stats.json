@@ -1,0 +1,39 @@
+{
+  "n_simulations": 500,
+  "features": [
+    "traffic",
+    "packets",
+    "eq_lambda",
+    "avg_pkts_lambda",
+    "exp_max_factor",
+    "pkts_lambda_on",
+    "avg_t_off",
+    "avg_t_on",
+    "ar_a",
+    "sigma"
+  ],
+  "median": {
+    "traffic": 576.8309936523438,
+    "packets": 0.5768555402755737,
+    "eq_lambda": 565.2955322265625,
+    "avg_pkts_lambda": 0.0,
+    "exp_max_factor": 0.0,
+    "pkts_lambda_on": 0.0,
+    "avg_t_off": 0.0,
+    "avg_t_on": 0.0,
+    "ar_a": 0.0,
+    "sigma": 0.0
+  },
+  "mean": {
+    "traffic": 671.7566528320312,
+    "packets": 0.6717672944068909,
+    "eq_lambda": 661.1288452148438,
+    "avg_pkts_lambda": 0.26438108086586,
+    "exp_max_factor": 3.9912681579589844,
+    "pkts_lambda_on": 0.27596309781074524,
+    "avg_t_off": 1.9906071424484253,
+    "avg_t_on": 1.9915262460708618,
+    "ar_a": 0.14067517220973969,
+    "sigma": 0.30085325241088867
+  }
+}
